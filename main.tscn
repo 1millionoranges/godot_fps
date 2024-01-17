@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4conw245qnk0"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_e5thf"]
+[ext_resource type="PackedScene" uid="uid://c0nktut4wwuhd" path="res://ground.tscn" id="1_vfou3"]
+[ext_resource type="PackedScene" uid="uid://cv3cj887eink2" path="res://player.tscn" id="2_r3imy"]
+[ext_resource type="PackedScene" uid="uid://dp5fb2a4v71ee" path="res://barrel.tscn" id="3_chy7c"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_e5thf")
+
+[node name="Ground" parent="." instance=ExtResource("1_vfou3")]
+
+[node name="Player" parent="." instance=ExtResource("2_r3imy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="FirstPersonCamera" type="Camera3D" parent="Player"]
+visible = false
+
+[node name="ThirdPersonCamera" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 4, 3)
+
+[node name="Barrel" parent="." instance=ExtResource("3_chy7c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.06106, 2.78399, -17.6136)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 13, 14)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 0)
+light_energy = 4.24
+light_size = 0.283
+omni_range = 47.689
+
+[node name="Barrel2" parent="." instance=ExtResource("3_chy7c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.89322, 2.87751, 20.0902)
+
+[node name="Barrel3" parent="." instance=ExtResource("3_chy7c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5032, 3.36704, 2.18666)
+
+[node name="Barrel" parent="Barrel3" instance=ExtResource("3_chy7c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.6229, 2.69721, 4.97144)
+
+[node name="Barrel4" parent="." instance=ExtResource("3_chy7c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.87788, 2.56797, -20.3254)
